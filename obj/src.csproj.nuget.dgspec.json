@@ -1,25 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\PROJECTS\\boutiqueidp\\src\\src.csproj": {}
+    "C:\\Users\\Yusif\\source\\repos\\boutiqueidp\\src.csproj": {}
   },
   "projects": {
-    "C:\\PROJECTS\\boutiqueidp\\src\\src.csproj": {
+    "C:\\Users\\Yusif\\source\\repos\\boutiqueidp\\src.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\PROJECTS\\boutiqueidp\\src\\src.csproj",
+        "projectUniqueName": "C:\\Users\\Yusif\\source\\repos\\boutiqueidp\\src.csproj",
         "projectName": "src",
-        "projectPath": "C:\\PROJECTS\\boutiqueidp\\src\\src.csproj",
-        "packagesPath": "C:\\Users\\Somad\\.nuget\\packages\\",
-        "outputPath": "C:\\PROJECTS\\boutiqueidp\\src\\obj\\",
+        "projectPath": "C:\\Users\\Yusif\\source\\repos\\boutiqueidp\\src.csproj",
+        "packagesPath": "C:\\Users\\Yusif\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Yusif\\source\\repos\\boutiqueidp\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Somad\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\Yusif\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -109,7 +108,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
         }
       }
     }
