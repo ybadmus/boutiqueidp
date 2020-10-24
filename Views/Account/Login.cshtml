@@ -20,7 +20,7 @@
             </header>
 
             <div class="inputs">
-                <input asp-for="Username" placeholder="Username or email" onfocus="this.placeholder = ''"
+                <input asp-for="Username" placeholder="Username or email" autocomplete="off" onfocus="this.placeholder = ''"
                        onblur="this.placeholder = 'Username or email'">
                 <input type="password" asp-for="Password" placeholder="Password" autocomplete="off" onfocus="this.placeholder = ''"
                        onblur="this.placeholder = 'Password'">
@@ -30,7 +30,9 @@
             </div>
 
             <footer>
-                <button name="button" value="login"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</button>
+                <button name="button" value="login" style="cursor: pointer;">
+                    <i class="fa fa-sign-in" aria-hidden="true"></i> Login
+                </button>
                 <p>Don't have an account? <a href="#">Sign Up</a></p>
             </footer>
 
