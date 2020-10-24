@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Yusif\\source\\repos\\boutiqueidp\\src.csproj": {}
+    "C:\\Users\\Yusif\\source\\repos\\BoutiqueIDP\\src.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Yusif\\source\\repos\\boutiqueidp\\src.csproj": {
+    "C:\\Users\\Yusif\\source\\repos\\BoutiqueIDP\\src.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Yusif\\source\\repos\\boutiqueidp\\src.csproj",
+        "projectUniqueName": "C:\\Users\\Yusif\\source\\repos\\BoutiqueIDP\\src.csproj",
         "projectName": "src",
-        "projectPath": "C:\\Users\\Yusif\\source\\repos\\boutiqueidp\\src.csproj",
+        "projectPath": "C:\\Users\\Yusif\\source\\repos\\BoutiqueIDP\\src.csproj",
         "packagesPath": "C:\\Users\\Yusif\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Yusif\\source\\repos\\boutiqueidp\\obj\\",
+        "outputPath": "C:\\Users\\Yusif\\source\\repos\\BoutiqueIDP\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

@@ -56,7 +56,7 @@ p {
 
 .bg {
     width: 400px;
-    height: 550px;
+    height: 535px;
     background: #b75c31;
     position: absolute;
     top: -5em;
@@ -78,6 +78,7 @@ form {
     width: 100%;
     text-align: center;
     padding: 2em;
+    height: 595px;
 }
 
 header {

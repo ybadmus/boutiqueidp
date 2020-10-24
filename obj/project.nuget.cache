@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "OftnKig55NpfrSGxR9bhKsEWc/D4t1DJzgnY9eEck5Ea11If+CiWhzlfQk5xRiiIyBV0vPI4evUTj/nUDCUAGw==",
+  "dgSpecHash": "HF/4OqNMJpmSynsLPoaJMVyeIo8Eh8pmbSoUMYJh36lMTjDh6TpWSn8mQrdvYK/aH8+eRAgAvjzh39kgJlAT1w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Yusif\\source\\repos\\boutiqueidp\\src.csproj",
+  "projectFilePath": "C:\\Users\\Yusif\\source\\repos\\BoutiqueIDP\\src.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Yusif\\.nuget\\packages\\automapper\\9.0.0\\automapper.9.0.0.nupkg.sha512",
     "C:\\Users\\Yusif\\.nuget\\packages\\identitymodel\\4.4.0\\identitymodel.4.4.0.nupkg.sha512",
@@ -147,5 +147,12 @@
     "C:\\Users\\Yusif\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
     "C:\\Users\\Yusif\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\Yusif\\source\\repos\\BoutiqueIDP\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

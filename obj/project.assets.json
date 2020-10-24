@@ -6848,11 +6848,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Yusif\\source\\repos\\boutiqueidp\\src.csproj",
+      "projectUniqueName": "C:\\Users\\Yusif\\source\\repos\\BoutiqueIDP\\src.csproj",
       "projectName": "src",
-      "projectPath": "C:\\Users\\Yusif\\source\\repos\\boutiqueidp\\src.csproj",
+      "projectPath": "C:\\Users\\Yusif\\source\\repos\\BoutiqueIDP\\src.csproj",
       "packagesPath": "C:\\Users\\Yusif\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Yusif\\source\\repos\\boutiqueidp\\obj\\",
+      "outputPath": "C:\\Users\\Yusif\\source\\repos\\BoutiqueIDP\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -6952,5 +6952,13 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\Yusif\\source\\repos\\BoutiqueIDP\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
