@@ -2,7 +2,6 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
-using IdentityServer4;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
@@ -10,6 +9,15 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using IdentityServerHost.Quickstart.UI;
+using IdentityServer4.EntityFramework.DbContexts;
+using IdentityServer4.EntityFramework.Mappers;
+using System.Linq;
+using System.Security.Cryptography.X509Certificates;
+using System.IO;
+using src.Models;
+using System.Reflection;
+using Microsoft.AspNetCore.Identity;
+using src.Data;
 
 namespace src
 {
@@ -32,8 +40,6 @@ namespace src
 
             services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<AuthenticationContext>().AddDefaultTokenProviders();
 
-            services.AddMvc().SetCompatibilityVersion(Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_3_1);
-
             services.Configure<IISOptions>(options =>
             {
                 options.AutomaticAuthentication = false;
@@ -41,6 +47,7 @@ namespace src
             });
 
             var connectionString = Configuration.GetConnectionString("DefaultConnection");
+            var migrationsAssembly = typeof(Startup).GetTypeInfo().Assembly.GetName().Name;
 
             var builder = services.AddIdentityServer(options =>
             {
@@ -53,41 +60,43 @@ namespace src
                 options.EmitStaticAudienceClaim = true;
             })
                 .AddTestUsers(TestUsers.Users)
+                .AddAspNetIdentity<ApplicationUser>()
                 // this adds the config data from DB (clients, resources, CORS)
                 .AddConfigurationStore(options =>
                 {
-                    //options.ConfigureDbContext = builder => builder.UseSqlite(connectionString);
-                    options.ConfigureDbContext = b => b.UseSqlServer(connectionString, sql => sql.MigrationsAssembly(migrationsAssembly));
+                    options.ConfigureDbContext = b => b.UseSqlServer(connectionString,
+                        sql => sql.MigrationsAssembly(migrationsAssembly));
                 })
                 // this adds the operational data from DB (codes, tokens, consents)
                 .AddOperationalStore(options =>
                 {
-                    //options.ConfigureDbContext = builder => builder.UseSqlite(connectionString);
-                    options.ConfigureDbContext = b => b.UseSqlServer(connectionString, sql => sql.MigrationsAssembly(migrationsAssembly));
+                    options.ConfigureDbContext = b => b.UseSqlServer(connectionString,
+                        sql => sql.MigrationsAssembly(migrationsAssembly));
 
                     // this enables automatic token cleanup. this is optional.
                     options.EnableTokenCleanup = true;
                 });
 
-            // not recommended for production - you need to store your key material somewhere secure
-            builder.AddDeveloperSigningCredential();
+            //// not recommended for production - you need to store your key material somewhere secure
+            //builder.AddDeveloperSigningCredential();
 
-            services.AddAuthentication()
-                .AddGoogle(options =>
-                {
-                    options.SignInScheme = IdentityServerConstants.ExternalCookieAuthenticationScheme;
+            var cert = new X509Certificate2(Path.Combine(Environment.ContentRootPath, "idsrv3test.pfx"), "idsrv3test");
 
-                    // register your IdentityServer with Google at https://console.developers.google.com
-                    // enable the Google+ API
-                    // set the redirect URI to https://localhost:5001/signin-google
-                    options.ClientId = "copy client ID from Google here";
-                    options.ClientSecret = "copy client secret from Google here";
-                });
+            if (Environment.IsDevelopment())
+            {
+                builder.AddDeveloperSigningCredential();
+            }
+            else
+            {
+                builder.AddSigningCredential(cert);
+            }
+
+            services.AddAuthentication();
         }
 
         public void Configure(IApplicationBuilder app)
         {
-            InitializeDatabase(app);
+            //InitializeDatabase(app);
 
             if (Environment.IsDevelopment())
             {
@@ -126,7 +135,7 @@ namespace src
 
                 if (!context.IdentityResources.Any())
                 {
-                    foreach (var resource in Config.GetIdentityResources())
+                    foreach (var resource in Config.GetIdentityResources)
                     {
                         context.IdentityResources.Add(resource.ToEntity());
                     }
@@ -135,13 +144,13 @@ namespace src
 
                 if (!context.ApiResources.Any())
                 {
-                    foreach (var resource in Config.GetApiResources())
+                    foreach (var resource in Config.GetApiResources)
                     {
                         context.ApiResources.Add(resource.ToEntity());
                     }
                     context.SaveChanges();
                 }
             }
-        } 
+        }
     }
 }

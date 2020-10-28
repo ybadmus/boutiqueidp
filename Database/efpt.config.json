@@ -1,0 +1,177 @@
+﻿{
+   "ContextClassName": "BoutiqueContext",
+   "ContextNamespace": "Entities",
+   "DefaultDacpacSchema": null,
+   "FilterSchemas": false,
+   "IncludeConnectionString": true,
+   "ModelNamespace": "Entities",
+   "OutputContextPath": "Entities",
+   "OutputPath": "Entities",
+   "ProjectRootNamespace": "Database",
+   "Schemas": null,
+   "SelectedHandlebarsLanguage": 0,
+   "SelectedToBeGenerated": 0,
+   "Tables": [
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[ApiResourceClaims]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[ApiResourceProperties]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[ApiResources]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[ApiResourceScopes]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[ApiResourceSecrets]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[ApiScopeClaims]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[ApiScopeProperties]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[ApiScopes]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[AspNetRoleClaims]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[AspNetRoles]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[AspNetUserClaims]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[AspNetUserLogins]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[AspNetUserRoles]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[AspNetUsers]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[AspNetUserTokens]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[ClientClaims]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[ClientCorsOrigins]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[ClientGrantTypes]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[ClientIdPRestrictions]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[ClientPostLogoutRedirectUris]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[ClientProperties]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[ClientRedirectUris]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Clients]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[ClientScopes]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[ClientSecrets]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[DeviceCodes]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[IdentityResourceClaims]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[IdentityResourceProperties]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[IdentityResources]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[PersistedGrants]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[tblCategory]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[tblProduct]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[tblProductQty]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[tblProductSize]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[tblProductSuitType]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[tblSale]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[tblSaleDetail]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[tblSubCategory]"
+      }
+   ],
+   "UseDatabaseNames": true,
+   "UseDbContextSplitting": false,
+   "UseFluentApiOnly": false,
+   "UseHandleBars": true,
+   "UseInflector": false,
+   "UseLegacyPluralizer": false,
+   "UseNodaTime": false,
+   "UseSpatial": false,
+   "UseStoredProcedures": false
+}

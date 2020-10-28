@@ -2,43 +2,108 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
+using IdentityServer4;
 using IdentityServer4.Models;
+using Microsoft.Extensions.Configuration;
 using System.Collections.Generic;
 
 namespace src
 {
     public static class Config
     {
-        public static IEnumerable<IdentityResource> IdentityResources =>
+        public static IEnumerable<IdentityResource> GetIdentityResources =>
                    new IdentityResource[]
                    {
+                new IdentityResources.Email(),
                 new IdentityResources.OpenId(),
-                new IdentityResources.Profile(),
+                new IdentityResources.Profile()
                    };
+
+        public static IEnumerable<ApiResource> GetApiResources =>
+            new ApiResource[]
+            {
+                new ApiResource("boutiqueapi", "Boutique System API")
+                {
+                    ApiSecrets = { new Secret("03B2C4354FF046F99F53F95D0792AAD9".Sha256()) }
+                },
+            };
 
         public static IEnumerable<ApiScope> ApiScopes =>
             new ApiScope[]
             {
-                new ApiScope("scope1"),
-                new ApiScope("scope2"),
+                new ApiScope("boutiqueapi")
             };
 
-        public static IEnumerable<Client> Clients =>
+        public static IEnumerable<Client> GetClients(IConfiguration configuration) =>
             new Client[]
             {
-                // m2m client credentials flow client
+                // Client for the Boutique API application
                 new Client
                 {
-                    ClientId = "m2m.client",
-                    ClientName = "Client Credentials Client",
+                    ClientId = "BoutiqueCode",
+                    ClientName = "Boutique Code",
 
-                    AllowedGrantTypes = GrantTypes.ClientCredentials,
-                    ClientSecrets = { new Secret("511536EF-F270-4058-80CA-1C89C192F69A".Sha256()) },
+                    AllowedGrantTypes = GrantTypes.Code,
+                    RequirePkce = true,
+                    RequireClientSecret = false,
+                    RequireConsent = false,
+                    RedirectUris = new []
+                    {
+                        "http://localhost/BoutiqueAPI/signin-oidc",
+                        "http://localhost/BoutiqueAPI/swagger/signin-oidc"
+                    },
 
-                    AllowedScopes = { "scope1" }
+                    PostLogoutRedirectUris = new []
+                    {
+                        "http://localhost/BoutiqueAPI/signout-callback-oidc",
+                        "http://localhost/BoutiqueAPI/swagger/signout-callback-oidc"
+                    },
+                    AllowedCorsOrigins = new []
+                    {
+                        "http://localhost"
+                    },
+
+                    AllowedScopes = {
+                        IdentityServerConstants.StandardScopes.Email,
+                        IdentityServerConstants.StandardScopes.OpenId,
+                        IdentityServerConstants.StandardScopes.Profile,
+                        "boutiqueapi"
+                    }
                 },
 
-                // interactive client using code flow + pkce
+                //Client for the Boutique Swagger API application
+                new Client
+                {
+                    ClientId = "BoutiqueImplicit",
+                    ClientName = "Boutique Implicit",
+                    AllowedGrantTypes = GrantTypes.Implicit,
+                    AllowedScopes = new [] {
+                        IdentityServerConstants.StandardScopes.Email,
+                        IdentityServerConstants.StandardScopes.OpenId,
+                        IdentityServerConstants.StandardScopes.Profile,
+                        "boutiqueapi"
+                    },
+                    RequireConsent = false,
+                    AllowAccessTokensViaBrowser = true,
+                    AlwaysIncludeUserClaimsInIdToken = true,
+                    AllowOfflineAccess = true,
+                    AllowedCorsOrigins = new []
+                    {
+                        "http://localhost",
+                        "http://localhost/BoutiqueAPI"
+                    },
+                    RedirectUris =  new []
+                    {
+                        "http://localhost/BoutiqueAPI",
+                        "http://localhost/BoutiqueAPI/swagger/oauth2-redirect.html"
+                    },
+                    PostLogoutRedirectUris =
+                    {
+                        "http://localhost/BoutiqueAPI/swagger",
+                        "http://localhost/BoutiqueAPI"
+                    }
+                },
+
                 new Client
                 {
                     ClientId = "interactive",
@@ -51,8 +116,8 @@ namespace src
                     PostLogoutRedirectUris = { "https://localhost:44300/signout-callback-oidc" },
 
                     AllowOfflineAccess = true,
-                    AllowedScopes = { "openid", "profile", "scope2" }
-                },
+                    AllowedScopes = { "openid", "profile", "boutiqueapi" }
+                }
             };
     }
 }

@@ -9,21 +9,23 @@ using Microsoft.Extensions.DependencyInjection;
 using System.Linq;
 using IdentityServer4.EntityFramework.Storage;
 using Serilog;
+using Microsoft.Extensions.Configuration;
 
 namespace src
 {
     public class SeedData
     {
+        private static readonly IConfiguration _configuration;
         public static void EnsureSeedData(string connectionString)
         {
             var services = new ServiceCollection();
             services.AddOperationalDbContext(options =>
             {
-                options.ConfigureDbContext = db => db.UseSqlite(connectionString, sql => sql.MigrationsAssembly(typeof(SeedData).Assembly.FullName));
+                options.ConfigureDbContext = db => db.UseSqlServer(connectionString, sql => sql.MigrationsAssembly(typeof(SeedData).Assembly.FullName));
             });
             services.AddConfigurationDbContext(options =>
             {
-                options.ConfigureDbContext = db => db.UseSqlite(connectionString, sql => sql.MigrationsAssembly(typeof(SeedData).Assembly.FullName));
+                options.ConfigureDbContext = db => db.UseSqlServer(connectionString, sql => sql.MigrationsAssembly(typeof(SeedData).Assembly.FullName));
             });
 
             var serviceProvider = services.BuildServiceProvider();
@@ -43,7 +45,7 @@ namespace src
             if (!context.Clients.Any())
             {
                 Log.Debug("Clients being populated");
-                foreach (var client in Config.Clients.ToList())
+                foreach (var client in Config.GetClients(_configuration).ToList())
                 {
                     context.Clients.Add(client.ToEntity());
                 }
@@ -57,7 +59,7 @@ namespace src
             if (!context.IdentityResources.Any())
             {
                 Log.Debug("IdentityResources being populated");
-                foreach (var resource in Config.IdentityResources.ToList())
+                foreach (var resource in Config.GetIdentityResources.ToList())
                 {
                     context.IdentityResources.Add(resource.ToEntity());
                 }

@@ -1,0 +1,9 @@
+C:\PROJECTS\boutiqueidp\Database\bin\Debug\netcoreapp3.1\Database.deps.json
+C:\PROJECTS\boutiqueidp\Database\bin\Debug\netcoreapp3.1\Database.dll
+C:\PROJECTS\boutiqueidp\Database\obj\Debug\netcoreapp3.1\Database.csprojAssemblyReference.cache
+C:\PROJECTS\boutiqueidp\Database\obj\Debug\netcoreapp3.1\Database.AssemblyInfoInputs.cache
+C:\PROJECTS\boutiqueidp\Database\obj\Debug\netcoreapp3.1\Database.AssemblyInfo.cs
+C:\PROJECTS\boutiqueidp\Database\bin\Debug\netcoreapp3.1\Database.pdb
+C:\PROJECTS\boutiqueidp\Database\obj\Debug\netcoreapp3.1\Database.csproj.CoreCompileInputs.cache
+C:\PROJECTS\boutiqueidp\Database\obj\Debug\netcoreapp3.1\Database.dll
+C:\PROJECTS\boutiqueidp\Database\obj\Debug\netcoreapp3.1\Database.pdb
